@@ -1,45 +1,84 @@
-# 📚 Singly Linked List : Find the Middle Node of a Singly Linked List Using Recursion
+### EX: 11.b Singly Linked List (Insertion and all operation)
 
-This Python program demonstrates how to find the middle node of a singly linked list using recursion. The program calculates the middle element by utilizing two pointers, with one pointer moving one step at a time (slow) and the other moving two steps at a time (fast). When the fast pointer reaches the end of the list, the slow pointer will be at the middle node.
 
-## 🎯 Aim
+### Aim: To Write a python program to add new element at the start of the list.
 
-To write a Python program that:
-- Creates a singly linked list.
-- Uses recursion to find the middle node of the list.
-- In case of an even number of nodes, it returns the second middle element.
 
-## 🧠 Algorithm
+### Algorithm:
 
-1. **Node Class**: 
-   - Define a `Node` class to represent each node in the singly linked list. Each node has two attributes: `data` and `next`.
-   
-2. **LinkedList Class**:
-   - Define a `LinkedList` class that manages the linked list with methods to:
-     - `append(data)`: Add a new node to the end of the list.
-     - `get_middle_recursive(slow, fast)`: A recursive helper function to find the middle node using two pointers (slow and fast).
-     - `find_middle()`: A method to call the recursive function and return the middle node's data.
+STEP 1: Start.
 
-3. **Input**:
-   - First, the program reads an integer `n`, representing the number of elements in the linked list.
-   - Then, it reads `n` space-separated integers to form the linked list.
+STEP 2: Create a node class and object of the node.
 
-4. **Recursive Middle Finding**:
-   - The `get_middle_recursive` method uses two pointers to traverse the list:
-     - The `slow` pointer moves one step at a time.
-     - The `fast` pointer moves two steps at a time.
-   - When the `fast` pointer reaches the end, the `slow` pointer will be at the middle node.
+STEP 3: Create another class to use the node object.
 
-5. **Output**:
-   - The program prints the middle element. If the list has an even number of nodes, it returns the second middle element.
+STEP 4 : The new node is always added before the head of the given Linked List. And newly added node becomes the new head of the Linked List.
 
----
+STEP 5 : Print the result.
 
-## 💻 Program
-Add code here
+STEP 6 : Stop.
 
-## Sample Input & Output
+### Program:
+```
+reg no:212223070004
+name:dhushanth.km
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
 
-## Result
+class LinkedList:
+    def __init__(self):
+        self.head = None
+    
+    def append(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        last = self.head
+        while last.next:
+            last = last.next
+        last.next = new_node
 
+    def add_at_start(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+
+    def display(self):
+        current = self.head
+        if not current:
+            print("List is empty")
+            return
+        while current:
+            if current.next:
+                print(f"{current.data} ->", end=" ")
+            else:
+                print(f"{current.data} -> None", end="")
+            current = current.next
+        print()
+
+if __name__ == "__main__":
+    linked_list = LinkedList()
+    
+    for i in range(4):
+        val = int(input(f"Enter value {i+1}: "))
+        linked_list.append(val)
+    
+    linked_list.display()
+
+    new_val = int(input("Enter value to add at the start: "))
+    linked_list.add_at_start(new_val)
+    
+    linked_list.display()
+
+
+           
+```
+### Output:
+![image](https://github.com/user-attachments/assets/4a1b089b-aefe-4328-bc3c-611e6757b8c9)
+
+### Result: Thus, the given program is implemented and executed successfully .
+ 
 
