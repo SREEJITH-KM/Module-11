@@ -1,33 +1,73 @@
-# # 🔍 Singly Linked List-To Search an Element in a Linked List
+### EX: 11 a Singly Linked List (Traversal, Search and Delete)
 
-This project contains a simple implementation of a **singly linked list** in Python, allowing insertion and searching of elements.
+### Aim: Write a function to traverse the linked list and display it in the following format.
 
----
+### Algorithm:
 
-## 🎯 Aim
+STEP 1: Start.
 
-To write a Python program to search for a given element in a singly linked list using object-oriented programming principles.
+STEP 2: Create a node class and object of the node.
 
----
+STEP 3: Create another class to use the node object.
 
-## 🧠 Algorithm
+STEP 4 : Using data traversing traverse from first to last data element .
 
-1. **Define a Node class** with `data` and `next` attributes.
-2. **Define a LinkedList class** with:
-   - A `head` pointer initialized to `None`.
-   - A `push()` method to add elements at the beginning.
-   - A `search()` method to check whether a given value exists.
-3. Create a `LinkedList` instance.
-4. Insert the elements **10, 30, 11, 21, 14** using `push()` (which results in reverse order).
-5. Read an integer input from the user.
-6. Use `search()` to check if the element exists in the list.
-7. Output **"Yes"** if found, else **"No"**.
+STEP 5 : Print the data.
 
----
+STEP 6 : Stop.
 
-## 💻 Program
-Add Code Here
-## Sample Output
+### Program:
+```
+reg no:212223070004
+name:dhushanth.km
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
 
-## Result
+class LinkedList:
+    def __init__(self):
+        self.head = None
+    
+    def append(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        last = self.head
+        while last.next:
+            last = last.next
+        last.next = new_node
+    
+    def display(self):
+        current = self.head
+        if not current:
+            print("List is empty")
+            return
+        while current:
+            if current.next:
+                print(f"{current.data} ->", end=" ")
+            else:
+                print(f"{current.data} -> None", end="")
+            current = current.next
+        print()
+
+if __name__ == "__main__":
+    linked_list = LinkedList()
+    
+    for i in range(4):
+        val = int(input(f"Enter value {i+1}: "))
+        linked_list.append(val)
+    
+    linked_list.display()
+
+       
+
+```
+### Output:
+![image](https://github.com/user-attachments/assets/6981d2f7-cda7-47d2-b9e2-e1efbde7dc2c)
+
+
+### Result: Thus, the given program is implemented and executed successfully .
+ 
 
