@@ -1,43 +1,97 @@
-# 📚 Doubly Linked List: Insert Elements at the End of a Doubly Linked List
+### EX: 11.d Doubly Linked List (Insertion and all operation)
 
-This Python program demonstrates the creation and manipulation of a **Doubly Linked List** where elements can be inserted at the **end** of the list. The program also provides a method to traverse the list and display the elements.
 
----
+### Aim: To Type a python function to insert elements at the beginning of the doubly linked list.
+### Algorithm:
+STEP 1: Start.
 
-## 🎯 Aim
+STEP 2: Create a node class and object of the node.
 
-To write a Python program that:
-- Implements a **Doubly Linked List**.
-- Allows insertion of elements at the end of the list.
-- Provides functionality to traverse the list and display its elements.
+STEP 3: Create another class to use the node object.
 
----
+STEP 4: The new node is always added before the head of the given Linked List. And newly added node becomes the new head of the Linked List.
 
-## 🧠 Algorithm
+STEP 5: Print the data.
 
-1. **Step 1:** Define a class `Node` to represent each node in the doubly linked list with attributes:
-   - `item` for storing the data of the node.
-   - `nref` for storing the reference to the next node.
-   - `pref` for storing the reference to the previous node.
+STEP 6: Stop.
 
-2. **Step 2:** Define a class `DoublyLinkedList` with:
-   - `start_node` to point to the first node of the list.
+### Program:
+```
+reg no:212223070004
+name:dhushanth.km
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
 
-3. **Step 3:** Define methods in the `DoublyLinkedList` class:
-   - `insert_in_emptylist(data)` to insert an element when the list is empty.
-   - `insert_at_end(data)` to insert elements at the end of the list.
-   - `traverse_list()` to traverse the list and print the elements.
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+    
+    def append(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        last = self.head
+        while last.next:
+            last = last.next
+        last.next = new_node
+        new_node.prev = last
+    
+    def insert_at_beginning(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        new_node.next = self.head
+        self.head.prev = new_node
+        self.head = new_node
+    
+    def display_forward(self):
+        current = self.head
+        if not current:
+            print("List is empty")
+            return
+        while current:
+            print(current.data, end=" <-> ")
+            current = current.next
+        print("None")
+    
+    def display_backward(self):
+        current = self.head
+        if not current:
+            print("List is empty")
+            return
+        while current.next:
+            current = current.next
+        while current:
+            print(current.data, end=" <-> ")
+            current = current.prev
+        print("None")
 
-4. **Step 4:** Create an instance of `DoublyLinkedList` and use the `insert_at_end()` method to insert elements into the list.
+if __name__ == "__main__":
+    dll = DoublyLinkedList()
+    
+    for i in range(4):
+        val = int(input(f"Enter value {i+1}: "))
+        dll.append(val)
+    
+    print("Original list:")
+    dll.display_forward()
+    
+    new_val = int(input("Enter value to insert at the beginning: "))
+    dll.insert_at_beginning(new_val)
+    
+    print("List after inserting at the beginning:")
+    dll.display_forward()
 
-5. **Step 5:** Use the `traverse_list()` method to print the elements of the list.
+```
+### Output:
+ 
+![image](https://github.com/user-attachments/assets/ca5e14bd-e347-434a-a239-dd4a967ad6bf)
 
----
+ 
 
-## 💻 Program
-Add Code here
-
-## Sample Output
-
-## Result
-
+### Result: Thus, the given program is implemented and executed successfully.
